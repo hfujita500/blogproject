@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView
 from django.urls import reverse_lazy
 from .models import BlogModel
 
@@ -29,3 +29,6 @@ class BlogUpdate(UpdateView):
 	model = BlogModel
 	fields = ('title', 'content', 'category')
 	success_url = reverse_lazy('list')
+	
+class IndexClass(TemplateView):
+	template_name = 'index.html'
